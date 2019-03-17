@@ -371,7 +371,10 @@ for i in range(nbr_images):
 
             g.add_edge(pydot.Edge(str(i), str(j)))
 g.write_png('jmu.png')
-```
+```  
+我们将每对图像之间的匹配特征数保存在数组中：  
+![image](https://github.com/Nocami/SIFT/blob/master/images/ju1.jpg)
+![image](https://github.com/Nocami/SIFT/blob/master/images/ju2.jpg)
 ![image](https://github.com/Nocami/SIFT/blob/master/images/jmu.jpg)  
-可见，计算机已经
+可见，计算机已经将图片标记划分完成。
 
