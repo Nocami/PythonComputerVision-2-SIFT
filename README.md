@@ -90,12 +90,17 @@ David Lowe在文献中提出的SIFT(尺度不变特征变换)是过去十年中�
 4).高速性，经优化的SIFT匹配算法甚至可以达到实时的要求；
 5).可扩展性，可以很方便的与其他形式的特征向量进行联合。  
 
-### 3.原理  
-#### (一).尺度空间：  
+### 3.原理简述：  
+#### 尺度空间：  
 在人体的视觉中，无论物体的大小，肉眼可以分辨出其相对大小。但是要让计算机掌握此能力却很困难。在没有标定的场景中，计算机视觉并不能计算出物体的大小，其中的一种方法是把物体不同尺度下的图像都提供给机器，让机器对物体在不同的尺度下有一个统一的认知。在建立统一认知的过程中，要考虑的就是在图像在不同的尺度下都存在的特征点。  
 图-多分辨率图像金字塔：  
 ![image](http://www.opencv.org.cn/opencvdoc/2.3.2/html/_images/Pyramids_Tutorial_Pyramid_Theory.png)  
-想象金字塔为一层一层的图像，层级越高，图像越小；尺度越大图像越模糊。
+想象金字塔为一层一层的图像，层级越高，图像越小；尺度越大图像越模糊。  
+#### DoG极值检测  
+Difference of Gaussian，为了寻找尺度空间的极值点，每个像素点要和其图像域（同一尺度空间）和尺度域（相邻的尺度空间）的所有相邻点进行比较，当其大于（或者小于）所有相邻点时，改点就是极值点。DoG在计算上只需相邻高斯平滑后图像相减，因此简化了计算!  
+#### 关键点描述子  
+为了实现旋转不变性，基于每个点周围图像梯度的方向和大小，SIFT描述子又引入了参考方向。它使用主方向描述参考方向。主方向使用方向直方图（以大小为权重）来度量。  
+
 ### 4.SIFT算法步骤：  
 1).尺度空间极值检测  
 
@@ -113,3 +118,45 @@ David Lowe在文献中提出的SIFT(尺度不变特征变换)是过去十年中�
 
 在每个关键点周围的邻域内，在选定的尺度上测量图像局部的梯度。这些梯度被变换成一种表示，这种表示允许比较大的局部形状的变形和光照变化。  
 
+### 5.检测感兴趣点  
+为了计算图像的SIFT特征，我们用开源工具包VLFeat。用Python重新实现SIFT特征提取的全过程不会很高效，而且也超出了本书的范围。VLFeat可以在www.vlfeat.org 上下载，它的二进制文件可以用于一些主要的平台。这个库是用C写的，不过我们可以利用它的命令行接口。下面是代码实例：  
+```
+# -*- coding: utf-8 -*-
+from PIL import Image
+from pylab import *
+from PCV.localdescriptors import sift
+from PCV.localdescriptors import harris
+
+# 添加中文字体支持
+from matplotlib.font_manager import FontProperties
+font = FontProperties(fname=r"c:\windows\fonts\SimSun.ttc", size=14)
+
+imname = '../data/empire.jpg'
+im = array(Image.open(imname).convert('L'))
+sift.process_image(imname, 'empire.sift')
+l1, d1 = sift.read_features_from_file('empire.sift')
+
+figure()
+gray()
+subplot(131)
+sift.plot_features(im, l1, circle=False)
+title(u'SIFT特征',fontproperties=font)
+subplot(132)
+sift.plot_features(im, l1, circle=True)
+title(u'用圆圈表示SIFT特征尺度',fontproperties=font)
+
+# 检测harris角点
+harrisim = harris.compute_harris_response(im)
+
+subplot(133)
+filtered_coords = harris.get_harris_points(harrisim, 6, 0.1)
+imshow(im)
+plot([p[1] for p in filtered_coords], [p[0] for p in filtered_coords], '*')
+axis('off')
+title(u'Harris角点',fontproperties=font)
+
+show()
+```  
+运行结果如下：  
+![image](https://github.com/Nocami/SIFT/blob/master/images/sift-04.jpg)  
+为了将sift和Harris角点进行比较，将Harris角点检测的显示在了图像的最后侧。正如你所看到的，这两种算法选择了不同的坐标。
