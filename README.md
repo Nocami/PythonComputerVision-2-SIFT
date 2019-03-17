@@ -70,3 +70,15 @@ show()
 ![image](https://github.com/Nocami/SIFT/blob/master/images/Harris-02-04.jpg)  
 ![image](https://github.com/Nocami/SIFT/blob/master/images/Harris-10-11.jpg)  
 ![image](https://github.com/Nocami/SIFT/blob/master/images/Harris-y02-y03.jpg)  
+## 三.SIFT(尺度不变特征变换)  
+David Lowe在文献中提出的SIFT(尺度不变特征变换)是过去十年中最成功的图像局部描述子之一。SIFT经受住了时间的考验。SIFT特征包括兴趣点检测器和描述子，其描述子具有非常强点稳健型，这在很大程度上也是其能够成功和流行点原因。
+![image](http://i0.qhmsg.com/dr/200__/t01fe92d0a98cf7c342.jpg)  
+照片：David Lowe  
+[SIFT解决的问题：](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#13-待办事宜-todo-列表)  
+
+- [x] 目标的旋转、缩放、平移（rst）
+- [x] 图像仿射/投影变换(视点viewpoint)
+- [x] 弱光照影响(illumination)
+- [x] 部分目标遮挡(occlusion)
+- [x] 杂物场景(clutter)
+- [x] 噪声
