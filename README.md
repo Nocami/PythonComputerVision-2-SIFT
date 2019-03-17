@@ -258,6 +258,8 @@ SIFT:
 ![image](https://github.com/Nocami/SIFT/blob/master/images/siftMatch-y02-y03-B.jpg)
 Harris:  
 ![image](https://github.com/Nocami/SIFT/blob/master/images/Harris-y02-y03.jpg)  
+为了将sift和Harris角点进行比较，将Harris角点检测的显示在了图像的最后侧。正如你所看到的，这两种算法选择了不同的坐标。  
+
 对比可以看出，Harris算法的结果存在一些不正确匹配，这是因为，与SIFT相比，图像像素块的互相关矩阵具有较弱的描述性。且Harris只能先将图像转化为灰度图再进行特征匹配，SIFT明显要好的多。  
 ### 7.匹配地理标记图像  
 最后，使用局部描述子来匹配带有地标的图像。因为Panoramio已经停止服务了，所以我们需要自己准备一些图片。这里使用了我本科所在的高校（集美大学）的一些照片。通过肉眼观察，我们可以很明显的区分出15张图片中所包含的四个不同的景象。  
@@ -274,6 +276,30 @@ Harris:
 
 ![image](https://github.com/Nocami/SIFT/blob/master/images/t01.jpg)
 
+#### 下面我们通过计算机来实现：  
 
-为了将sift和Harris角点进行比较，将Harris角点检测的显示在了图像的最后侧。正如你所看到的，这两种算法选择了不同的坐标。
-为了将sift和Harris角点进行比较，将Harris角点检测的显示在了图像的最后侧。正如你所看到的，这两种算法选择了不同的坐标。
+我们首先通过是否具有匹配的局部描述子来定义图像间的连接，然后可视化这些连接情况。为了完成可视化，我们可以在图中显示这些图像，图的边代表连接。我们采需要采用pydot工具包,它提供了GraphViz graphing库的Python接口。安装方式如此：  
+1.安装graphviz-2.28.0.msi  
+下载地址：http://download.csdn.NET/detail/shouwangzhelv/9492517   
+配置系统环境变量：C:\Program Files (x86)\Graphviz 2.28\bin添加到path中  
+2.安装pyparsing-1.5.7.win32-py2.7.exe;   
+
+安装pyparsing-1.5.7.win32-py2.7.exe  
+https://pypi.python.org/pypi/pyparsing/1.5.7   
+
+3.安装pydot  
+
+下载地址：https://pypi.python.org/pypi/pydot2/1.0.33  
+
+1）解压  
+
+2）cmd 到包所在位置，注意必须是 setup.py所在路径   
+
+3） 执行python setup.py install  
+
+cmd 到包所在位置，注意必须是 setup.py所在路径  
+
+执行python setup.py install  
+
+
+
