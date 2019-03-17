@@ -257,4 +257,23 @@ SIFT:
 ![image](https://github.com/Nocami/SIFT/blob/master/images/siftMatch-y02-y03-A.jpg)
 ![image](https://github.com/Nocami/SIFT/blob/master/images/siftMatch-y02-y03-B.jpg)
 Harris:  
-![image](https://github.com/Nocami/SIFT/blob/master/images/Harris-y02-y03.jpg)
+![image](https://github.com/Nocami/SIFT/blob/master/images/Harris-y02-y03.jpg)  
+对比可以看出，Harris算法的结果存在一些不正确匹配，这是因为，与SIFT相比，图像像素块的互相关矩阵具有较弱的描述性。且Harris只能先将图像转化为灰度图再进行特征匹配，SIFT明显要好的多。  
+### 7.匹配地理标记图像  
+最后，使用局部描述子来匹配带有地标的图像。因为Panoramio已经停止服务了，所以我们需要自己准备一些图片。这里使用了我本科所在的高校（集美大学）的一些照片。通过肉眼观察，我们可以很明显的区分出15张图片中所包含的四个不同的景象。  
+中山纪念堂：  
+
+![image](https://github.com/Nocami/SIFT/blob/master/images/02.jpg)  
+嘉庚图书馆：  
+
+![image](https://github.com/Nocami/SIFT/blob/master/images/y02.jpg)  
+尚大楼：  
+
+![image](https://github.com/Nocami/SIFT/blob/master/images/s02.jpg)  
+延奎图书馆：  
+
+![image](https://github.com/Nocami/SIFT/blob/master/images/t01.jpg)
+
+
+为了将sift和Harris角点进行比较，将Harris角点检测的显示在了图像的最后侧。正如你所看到的，这两种算法选择了不同的坐标。
+为了将sift和Harris角点进行比较，将Harris角点检测的显示在了图像的最后侧。正如你所看到的，这两种算法选择了不同的坐标。
