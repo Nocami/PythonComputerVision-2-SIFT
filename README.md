@@ -24,7 +24,8 @@ det(M)=λ1*λ2
 tr(M)=λ1+λ2
 
 ### 2.图片匹配实例  
-    
+Harris.py代码如下：
+```
 #-*- coding: utf-8 -*-
 from pylab import *
 from PIL import Image
@@ -64,3 +65,8 @@ figure()
 gray() 
 harris.plot_matches(im1, im2, filtered_coords1, filtered_coords2, matches)
 show()
+```  
+实例截图：  
+![image](https://github.com/Nocami/SIFT/blob/master/images/Harris-02-04.jpg)  
+![image](https://github.com/Nocami/SIFT/blob/master/images/Harris-10-11.jpg)  
+![image](https://github.com/Nocami/SIFT/blob/master/images/Harris-y02-y03.jpg)  
