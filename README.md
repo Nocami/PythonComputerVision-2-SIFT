@@ -12,6 +12,8 @@ Harris算子是一种角点特征，所谓角点，就是局部窗口沿各方�
 角点检测最早期的想法就是取某个像素的一个邻域窗口。当这个窗口在像素点各个方向上进行移动时，观察窗口内平均的像素灰度值的变化，若变化巨大，则为角点，若单一方向无变化则为平滑，垂直方向变化大则为边缘。从下图可知，我们可以将一幅图像大致分为三个区域（‘flat’，‘edge’，‘corner’），这三个区域变化是不一样的。  
 ![image](https://github.com/Nocami/SIFT/blob/master/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-17%20%E4%B8%8B%E5%8D%886.40.21.png)  
 其数学表达式为：  
-将图像窗口平移[u,v]产生灰度变化E(u,v)
-E ( u , v )   w ( x , y )  I ( x  u , y  v )  I ( x , y ) 2
+将图像窗口平移[u,v]产生灰度变化E(u,v)  
+![image](https://github.com/Nocami/SIFT/blob/master/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-17%20%E4%B8%8B%E5%8D%886.42.41.png)   
+我们把图像域中点x上的对称半正定矩阵定义为：  
+![image](https://github.com/Nocami/SIFT/blob/master/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-17%20%E4%B8%8B%E5%8D%886.45.42.png)
 
