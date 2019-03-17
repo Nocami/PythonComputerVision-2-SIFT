@@ -24,6 +24,7 @@ det(M)=λ1*λ2
 tr(M)=λ1+λ2
 
 ### 2.图片匹配实例  
+    
 #-*- coding: utf-8 -*-
 from pylab import *
 from PIL import Image
