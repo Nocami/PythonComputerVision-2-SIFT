@@ -203,11 +203,7 @@ gray()
 sift.plot_matches(im1, im2, l1, l2, matches, show_below=True)
 show()
 ```
-实例：  
-![image](https://github.com/Nocami/SIFT/blob/master/images/siftMatch-10-11-A.jpg)
-![image](https://github.com/Nocami/SIFT/blob/master/images/siftMatch-10-11-B.jpg)
-![image](https://github.com/Nocami/SIFT/blob/master/images/siftMatch-y02-y03-A.jpg)
-![image](https://github.com/Nocami/SIFT/blob/master/images/siftMatch-y02-y03-B.jpg)
+
 #### Harris  
 代码：  
 ```
@@ -251,6 +247,14 @@ gray()
 harris.plot_matches(im1, im2, filtered_coords1, filtered_coords2, matches)
 show()
 ```
-实例：  
+对比实例：  
+SIFT：  
+![image](https://github.com/Nocami/SIFT/blob/master/images/siftMatch-10-11-A.jpg)
+![image](https://github.com/Nocami/SIFT/blob/master/images/siftMatch-10-11-B.jpg)  
+Harris:  
 ![image](https://github.com/Nocami/SIFT/blob/master/images/Harris-10-11.jpg)
+SIFT:  
+![image](https://github.com/Nocami/SIFT/blob/master/images/siftMatch-y02-y03-A.jpg)
+![image](https://github.com/Nocami/SIFT/blob/master/images/siftMatch-y02-y03-B.jpg)
+Harris:  
 ![image](https://github.com/Nocami/SIFT/blob/master/images/Harris-y02-y03.jpg)
