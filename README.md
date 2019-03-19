@@ -25,7 +25,7 @@ tr(M)=λ1+λ2
 
 ### 2.图片匹配实例  
 Harris.py代码如下：
-```
+```python
 #-*- coding: utf-8 -*-
 from pylab import *
 from PIL import Image
@@ -120,7 +120,7 @@ Difference of Gaussian，为了寻找尺度空间的极值点，每个像素点�
 
 ### 5.检测感兴趣点  
 为了计算图像的SIFT特征，我们用开源工具包VLFeat。用Python重新实现SIFT特征提取的全过程不会很高效，而且也超出了本书的范围。VLFeat可以在www.vlfeat.org 上下载，它的二进制文件可以用于一些主要的平台。这个库是用C写的，不过我们可以利用它的命令行接口。下面是代码实例：  
-```
+```python
 # -*- coding: utf-8 -*-
 from PIL import Image
 from pylab import *
@@ -163,7 +163,7 @@ show()
 ### 6.匹配描述子  
 #### SIFT  
 代码：  
-```
+```python
 from PIL import Image
 from pylab import *
 import sys
@@ -206,7 +206,7 @@ show()
 
 #### Harris  
 代码：  
-```
+```python
 # -*- coding: utf-8 -*-
 from pylab import *
 from PIL import Image
@@ -302,7 +302,7 @@ cmd 到包所在位置，注意必须是 setup.py所在路径
 执行python setup.py install  
 
 代码如下（路径改为自己的图片所在位置，命名方式不限）：  
-```
+```python
 # -*- coding: utf-8 -*-
 from pylab import *
 from PIL import Image
